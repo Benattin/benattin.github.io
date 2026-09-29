@@ -7,8 +7,6 @@ const links = {
   cv: 'cv/Gustavo-Benatti.pdf',
 };
 
-const stats = { frontend: 75, backend: 45, lideranca: 55, ia: 70 };
-
 const sections = ['inicio', 'perfil', 'habilidades', 'experiencia', 'projetos', 'formacoes', 'conquistas', 'contato'];
 
 // Categoria e destaque de cada projeto, na mesma ordem de projectList
@@ -70,8 +68,6 @@ const pt = {
   profile: {
     about:
       'Desenvolvedor web de São Paulo, técnico em Desenvolvimento de Sistemas pela Etec Sebrae e estudante de Sistemas de Informação na FIAP. Gosto de transformar ideias em produtos que funcionam: sites, catálogos e assistentes de IA que rodam no meu próprio computador. Meu foco é me tornar especialista em inteligência artificial, sem perder o capricho no front-end.',
-    statsTitle: 'Atributos',
-    statLabels: { frontend: 'Frontend', backend: 'Backend', lideranca: 'Liderança', ia: 'IA' },
     educationTitle: 'Formação',
     education: [
       { course: 'Bacharelado em Sistemas de Informação', school: 'FIAP', period: '2026 – 2029 (em andamento)' },
@@ -79,36 +75,48 @@ const pt = {
     ],
     certTitle: 'Cursos e certificações',
     certs: [
-      'Capacita+: Construa com o Gemini · Google Cloud · 2026',
-      'Gestão de Infraestrutura de TI · FIAP Nano Course (20h) · 2026',
-      'Formação Social e Sustentabilidade · FIAP Nano Course (80h) · 2026',
-      'Empresário-Sombra Por Um Dia · Junior Achievement e MUFG (6h) · 2025',
-      'Finanças em Jogo · Junior Achievement e MUFG (5h) · 2025',
-      'Conectado com o Amanhã · Junior Achievement e MUFG (5h) · 2025',
-      'Feira do Empreendedor SP 2025 · Sebrae (40h) · 2025',
-      'Jornada Python · Hashtag Treinamentos (8h) · 2025',
-      'Imersão Inteligência Artificial na Prática · Daxus (8h) · 2025',
-      'TOEIC Bridge Listening and Reading · ETS · 2025',
-      'Endpoint Security · Cisco Networking Academy · 2024',
-      'Vacation English Course · Embassy Summer, Londres · 2024',
-      'Adolescência, Competências Socioemocionais e Saúde Mental · Leo Fraiman · 2024',
-      'Meta Spark · Junior Achievement (4h) · 2023',
-      'Mercado de Trabalho e Processo Seletivo · Nube · 2023',
+      {
+        group: 'Tecnologia',
+        items: [
+          'Capacita+: Construa com o Gemini · Google Cloud · 2026',
+          'Gestão de Infraestrutura de TI · FIAP Nano Course (20h) · 2026',
+          'Jornada Python · Hashtag Treinamentos (8h) · 2025',
+          'Imersão Inteligência Artificial na Prática · Daxus (8h) · 2025',
+          'Endpoint Security · Cisco Networking Academy · 2024',
+        ],
+      },
+      {
+        group: 'Idiomas',
+        items: ['TOEIC Bridge Listening and Reading · ETS · 2025', 'Vacation English Course · Embassy Summer, Londres · 2024'],
+      },
+      {
+        group: 'Carreira e negócios',
+        items: [
+          'Formação Social e Sustentabilidade · FIAP Nano Course (80h) · 2026',
+          'Empresário-Sombra Por Um Dia · Junior Achievement e MUFG (6h) · 2025',
+          'Finanças em Jogo · Junior Achievement e MUFG (5h) · 2025',
+          'Conectado com o Amanhã · Junior Achievement e MUFG (5h) · 2025',
+          'Feira do Empreendedor SP 2025 · Sebrae (40h) · 2025',
+          'Adolescência, Competências Socioemocionais e Saúde Mental · Leo Fraiman · 2024',
+          'Meta Spark · Junior Achievement (4h) · 2023',
+          'Mercado de Trabalho e Processo Seletivo · Nube · 2023',
+        ],
+      },
     ],
     langTitle: 'Idiomas',
     languages: ['Português fluente', 'Inglês intermediário e técnico', 'Espanhol básico'],
   },
   skills: [
-    { group: 'Comportamentais', note: 'Como eu trabalho.', items: ['Proatividade', 'Aprendizado rápido', 'Responsabilidade', 'Adaptação', 'Comunicação', 'Foco em resultados'] },
+    { group: 'Comportamentais', note: 'Na prática: 11 meses de voluntariado nas mídias da Etec, intercâmbio em Londres e projetos de IA feitos por conta própria.', items: ['Proatividade', 'Aprendizado rápido', 'Responsabilidade', 'Adaptação', 'Comunicação'] },
     { group: 'Linguagens', note: 'Base de tudo o que construo.', items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Python'] },
     { group: 'Frontend', note: 'Sites, catálogos e interfaces responsivas.', items: ['Design responsivo', 'React', 'Vite', 'Three.js', 'Animações CSS', 'GitHub Pages'] },
-    { group: 'Backend e APIs', note: 'Servidores locais que ligam interface e IA.', items: ['Node.js', 'Python', 'FastAPI', 'APIs REST', 'JSON'] },
+    { group: 'Backend e APIs', note: 'Servidores locais que ligam interface e IA.', items: ['Node.js', 'Python', 'FastAPI', 'APIs REST'] },
     { group: 'IA aplicada', note: 'Assistentes que rodam no meu próprio PC (Fenix e AURA).', items: ['Ollama', 'LLMs locais (Llama, Qwen)', 'Agentes de IA', 'Whisper (voz → texto)', 'Piper (texto → voz)', 'Engenharia de prompt'] },
     { group: 'Automação', note: 'Rotinas e apps de desktop no Windows.', items: ['Scripts em Python', 'App desktop (pywebview)', 'Leitura de PDF, Word e Excel', 'Build de sites estáticos'] },
-    { group: 'Ferramentas', note: 'O que uso no dia a dia.', items: ['Git', 'GitHub', 'VS Code / Cursor', 'npm', 'pytest'] },
-    { group: 'Segurança', note: 'Privacidade vem primeiro.', items: ['Privacidade local (local-first)', 'Confirmação de ações sensíveis', 'Segurança de endpoints (Cisco)', 'Noções de segurança da informação'] },
+    { group: 'Ferramentas', note: 'O que uso no dia a dia.', items: ['Git', 'GitHub', 'VS Code / Cursor', 'pytest'] },
+    { group: 'Segurança', note: 'Privacidade vem primeiro.', items: ['Privacidade local (local-first)', 'Confirmação de ações sensíveis', 'Segurança de endpoints (Cisco)'] },
   ],
-  missionsCounter: 'missão {c} de {t}',
+  missionsCounter: 'experiência {c} de {t}',
   missions: [
     {
       company: 'Projetos próprios',
@@ -128,6 +136,14 @@ const pt = {
       place: 'São Paulo, SP',
       highlights: ['Graduação com foco em desenvolvimento de sistemas, dados e tecnologia aplicada a negócios.'],
       stack: ['Sistemas', 'Dados', 'Negócios'],
+    },
+    {
+      company: 'Etec Sebrae · Voluntariado',
+      role: 'Voluntário em mídias digitais',
+      period: 'Fev 2025 – Dez 2025',
+      place: 'São Paulo, SP',
+      highlights: ['Mantive atualizadas as mídias digitais da escola durante 11 meses, no projeto Atualização das Mídias Digitais.'],
+      stack: ['Mídias sociais', 'Comunicação'],
     },
     {
       company: 'Etec Sebrae',
@@ -154,6 +170,7 @@ const pt = {
     demo: 'ver online',
     local: 'roda localmente',
     featured: 'destaque',
+    caseLabels: { problem: 'Problema', solution: 'O que fiz', learned: 'Aprendizado' },
     groups: { featured: 'Principais projetos', others: 'Outros projetos', github: 'Direto do GitHub' },
     github: { loading: 'carregando repositórios do GitHub…', error: 'Não consegui carregar agora. Veja todos no GitHub', noDescription: 'Sem descrição.' },
     filters: { all: 'todos', ia: 'IA', web: 'web' },
@@ -164,6 +181,11 @@ const pt = {
       date: '2026',
       description:
         'Agente pessoal de IA com voz e palavra de ativação ("ei Fenix"). Roda um modelo local no Ollama, organiza agenda, faz triagem de e-mails em modo somente leitura e monta um resumo de notícias com agentes próprios.',
+      case: {
+        problem: 'Queria um assistente que organizasse meu dia sem mandar meus dados para a nuvem.',
+        solution: 'Agente com palavra de ativação ("ei Fenix"), modelo local no Ollama, agenda, triagem de e-mails somente leitura e resumo de notícias com agentes próprios.',
+        learned: 'Orquestrar vários agentes e tratar privacidade como regra do projeto, não como detalhe.',
+      },
       stack: ['JavaScript', 'Node.js', 'Ollama', 'Llama 3.2', 'Web Speech'],
     },
     {
@@ -171,6 +193,11 @@ const pt = {
       date: '2026',
       description:
         'Assistente de IA para Windows que fica em segundo plano e acorda com a palavra "Aura". Entende voz com Whisper, responde falando com Piper, guarda memória local e só executa ações sensíveis com confirmação.',
+      case: {
+        problem: 'Ter um assistente de voz no Windows que agisse no PC sem o risco de fazer algo sem minha permissão.',
+        solution: 'Serviço em segundo plano com Whisper para ouvir, Piper para falar, memória local e confirmação antes de qualquer ação sensível.',
+        learned: 'Integrar backend em Python (FastAPI) com interface em React e pensar em segurança desde o começo.',
+      },
       stack: ['Python', 'FastAPI', 'React', 'TypeScript', 'Whisper', 'Piper TTS', 'Ollama'],
     },
     {
@@ -178,6 +205,11 @@ const pt = {
       date: '2026',
       description:
         'Catálogo estático de atacado para lojistas: busca, filtros, ficha de produto, carrinho e montagem do pedido. Os produtos vêm de um JSON e as páginas são geradas por um build próprio.',
+      case: {
+        problem: 'Lojistas precisavam de um jeito simples de consultar o catálogo de atacado e montar o pedido.',
+        solution: 'Site estático com busca, filtros, ficha de produto e carrinho. Os produtos ficam num JSON e as páginas são geradas por um build próprio.',
+        learned: 'Gerar páginas a partir de dados e publicar sem servidor, direto no GitHub Pages.',
+      },
       stack: ['JavaScript', 'HTML', 'CSS', 'Node.js', 'GitHub Pages'],
       repo: 'https://github.com/Benattin/catalogo-movement',
       demo: 'https://benattin.github.io/catalogo-movement/',
@@ -272,8 +304,6 @@ const en = {
   profile: {
     about:
       "Web developer from São Paulo, Systems Development technician from Etec Sebrae and Information Systems student at FIAP. I like turning ideas into products that work: websites, catalogs and AI assistants that run on my own computer. My goal is to become an artificial intelligence specialist while keeping a careful eye on the front end.",
-    statsTitle: 'Stats',
-    statLabels: { frontend: 'Frontend', backend: 'Backend', lideranca: 'Leadership', ia: 'AI' },
     educationTitle: 'Education',
     education: [
       { course: "Bachelor's in Information Systems", school: 'FIAP', period: '2026 – 2029 (in progress)' },
@@ -281,36 +311,48 @@ const en = {
     ],
     certTitle: 'Courses and certifications',
     certs: [
-      'Capacita+: Build with Gemini · Google Cloud · 2026',
-      'IT Infrastructure Management · FIAP Nano Course (20h) · 2026',
-      'Social Education and Sustainability · FIAP Nano Course (80h) · 2026',
-      'Job Shadow for a Day · Junior Achievement and MUFG (6h) · 2025',
-      'Finance in Play · Junior Achievement and MUFG (5h) · 2025',
-      'Connected to Tomorrow · Junior Achievement and MUFG (5h) · 2025',
-      'Entrepreneur Fair SP 2025 · Sebrae (40h) · 2025',
-      'Python Journey · Hashtag Treinamentos (8h) · 2025',
-      'Applied Artificial Intelligence Immersion · Daxus (8h) · 2025',
-      'TOEIC Bridge Listening and Reading · ETS · 2025',
-      'Endpoint Security · Cisco Networking Academy · 2024',
-      'Vacation English Course · Embassy Summer, London · 2024',
-      'Adolescence, Socio-emotional Skills and Mental Health · Leo Fraiman · 2024',
-      'Meta Spark · Junior Achievement (4h) · 2023',
-      'Job Market and Hiring Process · Nube · 2023',
+      {
+        group: 'Technology',
+        items: [
+          'Capacita+: Build with Gemini · Google Cloud · 2026',
+          'IT Infrastructure Management · FIAP Nano Course (20h) · 2026',
+          'Python Journey · Hashtag Treinamentos (8h) · 2025',
+          'Applied Artificial Intelligence Immersion · Daxus (8h) · 2025',
+          'Endpoint Security · Cisco Networking Academy · 2024',
+        ],
+      },
+      {
+        group: 'Languages',
+        items: ['TOEIC Bridge Listening and Reading · ETS · 2025', 'Vacation English Course · Embassy Summer, London · 2024'],
+      },
+      {
+        group: 'Career and business',
+        items: [
+          'Social Education and Sustainability · FIAP Nano Course (80h) · 2026',
+          'Job Shadow for a Day · Junior Achievement and MUFG (6h) · 2025',
+          'Finance in Play · Junior Achievement and MUFG (5h) · 2025',
+          'Connected to Tomorrow · Junior Achievement and MUFG (5h) · 2025',
+          'Entrepreneur Fair SP 2025 · Sebrae (40h) · 2025',
+          'Adolescence, Socio-emotional Skills and Mental Health · Leo Fraiman · 2024',
+          'Meta Spark · Junior Achievement (4h) · 2023',
+          'Job Market and Hiring Process · Nube · 2023',
+        ],
+      },
     ],
     langTitle: 'Languages',
     languages: ['Portuguese (fluent)', 'English (intermediate and technical)', 'Spanish (basic)'],
   },
   skills: [
-    { group: 'Soft skills', note: 'How I work.', items: ['Proactivity', 'Fast learning', 'Responsibility', 'Adaptability', 'Communication', 'Results-driven'] },
+    { group: 'Soft skills', note: 'In practice: 11 months volunteering on Etec’s digital media, an exchange in London and AI projects built on my own.', items: ['Proactivity', 'Fast learning', 'Responsibility', 'Adaptability', 'Communication'] },
     { group: 'Languages', note: 'The foundation of everything I build.', items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Python'] },
     { group: 'Frontend', note: 'Websites, catalogs and responsive interfaces.', items: ['Responsive design', 'React', 'Vite', 'Three.js', 'CSS animations', 'GitHub Pages'] },
-    { group: 'Backend & APIs', note: 'Local servers that connect UI and AI.', items: ['Node.js', 'Python', 'FastAPI', 'REST APIs', 'JSON'] },
+    { group: 'Backend & APIs', note: 'Local servers that connect UI and AI.', items: ['Node.js', 'Python', 'FastAPI', 'REST APIs'] },
     { group: 'Applied AI', note: 'Assistants that run on my own PC (Fenix and AURA).', items: ['Ollama', 'Local LLMs (Llama, Qwen)', 'AI agents', 'Whisper (speech → text)', 'Piper (text → speech)', 'Prompt engineering'] },
     { group: 'Automation', note: 'Routines and desktop apps on Windows.', items: ['Python scripts', 'Desktop app (pywebview)', 'PDF, Word and Excel parsing', 'Static site builds'] },
-    { group: 'Tools', note: 'What I use every day.', items: ['Git', 'GitHub', 'VS Code / Cursor', 'npm', 'pytest'] },
-    { group: 'Security', note: 'Privacy comes first.', items: ['Local-first privacy', 'Confirmation for sensitive actions', 'Endpoint security (Cisco)', 'Information security basics'] },
+    { group: 'Tools', note: 'What I use every day.', items: ['Git', 'GitHub', 'VS Code / Cursor', 'pytest'] },
+    { group: 'Security', note: 'Privacy comes first.', items: ['Local-first privacy', 'Confirmation for sensitive actions', 'Endpoint security (Cisco)'] },
   ],
-  missionsCounter: 'mission {c} of {t}',
+  missionsCounter: 'experience {c} of {t}',
   missions: [
     {
       company: 'Personal projects',
@@ -330,6 +372,14 @@ const en = {
       place: 'São Paulo, Brazil',
       highlights: ['Degree focused on systems development, data and technology applied to business.'],
       stack: ['Systems', 'Data', 'Business'],
+    },
+    {
+      company: 'Etec Sebrae · Volunteering',
+      role: 'Digital media volunteer',
+      period: 'Feb 2025 – Dec 2025',
+      place: 'São Paulo, Brazil',
+      highlights: ['Kept the school’s digital media up to date for 11 months in the Digital Media Update project.'],
+      stack: ['Social media', 'Communication'],
     },
     {
       company: 'Etec Sebrae',
@@ -356,6 +406,7 @@ const en = {
     demo: 'view live',
     local: 'runs locally',
     featured: 'featured',
+    caseLabels: { problem: 'Problem', solution: 'What I built', learned: 'What I learned' },
     groups: { featured: 'Main projects', others: 'Other projects', github: 'Straight from GitHub' },
     github: { loading: 'loading GitHub repositories…', error: "Couldn't load right now. See them all on GitHub", noDescription: 'No description.' },
     filters: { all: 'all', ia: 'AI', web: 'web' },
@@ -366,6 +417,11 @@ const en = {
       date: '2026',
       description:
         'Personal AI agent with voice and a wake word ("hey Fenix"). Runs a local model on Ollama, organizes my schedule, triages e-mail in read-only mode and builds a news digest with its own agents.',
+      case: {
+        problem: 'I wanted an assistant to organize my day without sending my data to the cloud.',
+        solution: 'Agent with a wake word ("hey Fenix"), a local model on Ollama, schedule, read-only e-mail triage and a news digest built by its own agents.',
+        learned: 'Orchestrating several agents and treating privacy as a project rule, not a detail.',
+      },
       stack: ['JavaScript', 'Node.js', 'Ollama', 'Llama 3.2', 'Web Speech'],
     },
     {
@@ -373,6 +429,11 @@ const en = {
       date: '2026',
       description:
         'Windows AI assistant that waits in the background and wakes up with the word "Aura". Understands speech with Whisper, answers out loud with Piper, keeps a local memory and only runs sensitive actions after confirmation.',
+      case: {
+        problem: 'A voice assistant on Windows that could act on my PC without the risk of doing something I did not approve.',
+        solution: 'Background service with Whisper to listen, Piper to speak, local memory and confirmation before any sensitive action.',
+        learned: 'Connecting a Python backend (FastAPI) to a React UI and thinking about security from day one.',
+      },
       stack: ['Python', 'FastAPI', 'React', 'TypeScript', 'Whisper', 'Piper TTS', 'Ollama'],
     },
     {
@@ -380,6 +441,11 @@ const en = {
       date: '2026',
       description:
         'Static wholesale catalog for retailers: search, filters, product page, cart and order builder. Products come from a JSON file and pages are generated by a custom build.',
+      case: {
+        problem: 'Retailers needed a simple way to browse the wholesale catalog and put an order together.',
+        solution: 'Static site with search, filters, product page and cart. Products live in a JSON file and pages are generated by a custom build.',
+        learned: 'Generating pages from data and shipping without a server, straight to GitHub Pages.',
+      },
       stack: ['JavaScript', 'HTML', 'CSS', 'Node.js', 'GitHub Pages'],
       repo: 'https://github.com/Benattin/catalogo-movement',
       demo: 'https://benattin.github.io/catalogo-movement/',
@@ -431,4 +497,4 @@ for (const lang of [pt, en]) {
   lang.projectList = lang.projectList.map((p, i) => ({ ...p, ...projectMeta[i] }));
 }
 
-export const content = { pt, en, links, stats, sections };
+export const content = { pt, en, links, sections };

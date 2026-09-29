@@ -10,9 +10,10 @@ import { buildWorld } from './world.js';
 const TRANSITION_S = 1.8;
 
 export function createScene(canvas) {
-  const mobile = window.matchMedia('(max-width: 860px)').matches;
+  // Celular ou aparelho fraco: cena mais leve
+  const mobile = window.matchMedia('(max-width: 860px)').matches || (navigator.hardwareConcurrency || 8) <= 4;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: !mobile, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.25 : 1.5));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1 : 1.5));
   renderer.setSize(innerWidth, innerHeight);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.15;

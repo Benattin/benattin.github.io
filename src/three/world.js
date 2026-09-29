@@ -16,7 +16,7 @@ export function buildWorld(scene, { mobile }) {
   createGround(scene);
   createCity(scene, rand, mobile);
   updaters.push(createAvenue(scene, rand));
-  updaters.push(createRain(scene, rand, mobile ? 500 : 1400));
+  updaters.push(createRain(scene, rand, mobile ? 300 : 1400));
   updaters.push(createCore(scene));
   updaters.push(createOrbit(scene));
   updaters.push(createPanels(scene));
@@ -85,12 +85,12 @@ function createGround(scene) {
 
 // ---------- Cidade: prédios, janelas, letreiros e luzes de topo ----------
 function createCity(scene, rand, mobile) {
-  const count = mobile ? 150 : 230;
+  const count = mobile ? 120 : 230;
   const geo = new THREE.BoxGeometry(1, 1, 1);
   geo.translate(0, 0.5, 0);
   const buildings = new THREE.InstancedMesh(geo, new THREE.MeshStandardMaterial({ color: PALETTE.building, roughness: 0.7, metalness: 0.25 }), count);
 
-  const maxWindows = mobile ? 1200 : 2200;
+  const maxWindows = mobile ? 900 : 2200;
   const windows = new THREE.InstancedMesh(new THREE.PlaneGeometry(0.35, 0.5), glowMat(0xffffff), maxWindows);
   const signs = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), glowMat(0xffffff), 40);
   const beacons = new THREE.InstancedMesh(new THREE.SphereGeometry(0.25, 8, 6), glowMat(indigo), 60);

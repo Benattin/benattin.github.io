@@ -3,10 +3,15 @@ import { state, t } from '../core/state.js';
 import { $ } from './dom.js';
 import { renderMenu, renderSheet } from './render.js';
 
-const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+// Clicar ou apertar uma tecla na abertura pula as esperas restantes
+let skipped = false;
+const wait = (ms) => new Promise((r) => setTimeout(r, skipped ? 0 : ms));
 
 export async function runBoot() {
   const d = t();
+  const skip = () => (skipped = true);
+  $('#boot').addEventListener('click', skip);
+  addEventListener('keydown', skip, { once: true });
   const bar = $('.boot__bar i');
   const task = $('.boot__task');
   const pct = $('.boot__pct');
@@ -17,7 +22,7 @@ export async function runBoot() {
   };
 
   step(8, d.bootTasks[0]);
-  await Promise.race([document.fonts?.ready, wait(1500)]);
+  await Promise.race([document.fonts?.ready, wait(600)]);
   step(30, d.bootTasks[1]);
 
   try {
@@ -33,9 +38,9 @@ export async function runBoot() {
   step(88, d.bootTasks[3]);
   renderMenu();
   renderSheet();
-  await wait(300);
+  await wait(120);
   step(100, d.bootDone);
-  await wait(420);
+  await wait(220);
   $('#boot').classList.add('is-done');
   document.body.classList.add('is-ready');
 }

@@ -12,13 +12,7 @@
 .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
 
 /* ---------- Perfil ---------- */
-.stats { display: grid; gap: 12px; }
-.stat { display: grid; grid-template-columns: 96px 1fr 30px; align-items: center; gap: 12px; font-size: 12px; }
-.stat__label { color: var(--ink-2); }
-.stat__value { text-align: right; font-weight: 400; color: var(--gray); font-variant-numeric: tabular-nums; }
-.stat__bar { height: 6px; background: var(--line); overflow: hidden; }
-.stat__bar i { display: block; height: 100%; width: var(--v); background: var(--grad); box-shadow: 0 0 10px var(--purple-glow); animation: grow 1.2s calc(var(--i) * 120ms) var(--ease) both; }
-@keyframes grow { from { width: 0; } }
+.certs__group { margin: 14px 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
 .certs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .certs li { padding: 10px 12px; border: 1px solid var(--line); background: var(--panel-2); display: grid; gap: 3px; transition: border-color 0.25s; }
 .certs li:hover { border-color: rgba(168, 85, 247, 0.45); }
@@ -50,6 +44,9 @@
 .filters__btn.is-on span { color: rgba(255, 255, 255, 0.7); }
 .projects { display: grid; gap: 12px; }
 .project p { margin-top: 10px; line-height: 1.65; color: var(--ink-2); font-size: 13px; }
+.case { display: grid; gap: 8px; margin-top: 10px; }
+.case dt { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.case dd { margin: 2px 0 0; font-size: 13px; line-height: 1.6; color: var(--ink-2); }
 .project--featured { border-color: rgba(139, 92, 246, 0.3); background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.04) 60%, transparent); }
 .project__links { display: flex; gap: 18px; margin-top: 14px; font-size: 12px; }
 

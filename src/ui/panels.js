@@ -3,7 +3,7 @@ import { state } from '../core/state.js';
 import { esc, pad } from './dom.js';
 import { github } from './github.js';
 
-const { links, stats } = content;
+const { links } = content;
 
 // ---------- Blocos reutilizáveis ----------
 const scrambleText = (text, tag, cls) =>
@@ -33,7 +33,7 @@ const sayAttr = (template, x = '') => `data-say="${esc(template.replace('{x}', x
 function inicio(d) {
   const numbers = [
     [d.projectList.length, d.hero.stats.projects],
-    [d.profile.certs.length, d.hero.stats.certs],
+    [d.profile.certs.reduce((n, g) => n + g.items.length, 0), d.hero.stats.certs],
     [d.profile.languages.length, d.hero.stats.languages],
   ];
   return `
@@ -65,28 +65,22 @@ function perfil(d) {
 };</pre>
     <p class="lead">${esc(d.profile.about)}</p>
 
-    ${heading(d.profile.statsTitle)}
-    <div class="stats">${Object.entries(stats)
-      .map(([key, v], i) => `
-        <div class="stat" style="--i:${i}">
-          <span class="stat__label">${esc(d.profile.statLabels[key])}</span>
-          <span class="stat__bar"><i style="--v:${v}%"></i></span>
-          <b class="stat__value">${v}</b>
-        </div>`)
-      .join('')}</div>
-
     ${heading(d.profile.educationTitle)}
     <ol class="timeline">${d.profile.education
       .map((e) => `<li><p class="timeline__when">${esc(e.period)}</p><p class="timeline__what">${esc(e.course)}</p><p class="muted">${esc(e.school)}</p></li>`)
       .join('')}</ol>
 
     ${heading(d.profile.certTitle)}
-    <ul class="certs">${d.profile.certs
+    ${d.profile.certs
+      .map((g) => `
+    <p class="certs__group">${esc(g.group)}</p>
+    <ul class="certs">${g.items
       .map((c) => {
         const [name, ...details] = c.split(' · ');
         return `<li><b>${esc(name)}</b><span>${esc(details.join(' · '))}</span></li>`;
       })
-      .join('')}</ul>
+      .join('')}</ul>`)
+      .join('')}
 
     ${heading(d.profile.langTitle)}
     ${chips(d.profile.languages)}`;
@@ -128,7 +122,11 @@ const projectCard = (d, p, i) => `
             <h3>${esc(p.title)}</h3>
             <span class="muted">${esc(p.date)}</span>
           </header>
-          <p>${esc(p.description)}</p>
+          ${p.case
+            ? `<dl class="case">${Object.entries(d.projects.caseLabels)
+                .map(([key, label]) => `<div><dt>${esc(label)}</dt><dd>${esc(p.case[key])}</dd></div>`)
+                .join('')}</dl>`
+            : `<p>${esc(p.description)}</p>`}
           ${chips(p.stack, 'chips--sm')}
           <footer class="project__links">
             ${p.repo ? extLink(p.repo, d.projects.repo) : ''}
