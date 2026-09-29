@@ -2,10 +2,9 @@
 .character {
   --x: 0px;
   --dir: 1;
-  --h: min(78vh, 780px);
   position: fixed; z-index: 8; bottom: 0;
-  left: max(clamp(180px, 20vw, 330px), calc(100vw - var(--edge) - var(--sheet-w) - var(--h) * 0.498 + 24px));
-  height: var(--h);
+  left: max(clamp(180px, 20vw, 330px), calc(100vw - var(--sheet-right) - var(--sheet-w) - var(--char-w) + 24px));
+  height: var(--char-h);
   aspect-ratio: 498 / 1000;
   pointer-events: none;
   transform: translate3d(var(--x), 0, 0);

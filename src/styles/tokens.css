@@ -24,5 +24,10 @@
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --edge: 32px;
   --sheet-w: min(560px, 44vw);
+  /* Personagem + painel formam um bloco centralizado na tela */
+  --char-h: min(78vh, 780px);
+  --char-w: calc(var(--char-h) * 0.498);
+  --group-w: calc(var(--char-w) + var(--sheet-w) - 24px);
+  --sheet-right: max(var(--edge), calc((100vw - var(--group-w)) / 2));
   --radius: 4px;
 }

@@ -1,6 +1,6 @@
 @media (max-width: 1100px) {
   .frame__hint { display: none; }
-  .sheet { width: min(520px, 52vw); }
+  :root { --sheet-w: min(520px, 52vw); --sheet-right: var(--edge); }
 }
 
 @media (max-width: 860px) {
