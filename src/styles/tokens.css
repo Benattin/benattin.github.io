@@ -23,5 +23,6 @@
 
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --edge: 32px;
+  --sheet-w: min(560px, 44vw);
   --radius: 4px;
 }

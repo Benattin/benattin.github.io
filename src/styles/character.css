@@ -1,10 +1,11 @@
-/* ---------- Personagem ilustrado entre o menu e o painel ---------- */
+/* ---------- Personagem ilustrado, encostado no painel ---------- */
 .character {
   --x: 0px;
   --dir: 1;
+  --h: min(78vh, 780px);
   position: fixed; z-index: 8; bottom: 0;
-  left: clamp(180px, 20vw, 330px);
-  height: min(78vh, 780px);
+  left: max(clamp(180px, 20vw, 330px), calc(100vw - var(--edge) - var(--sheet-w) - var(--h) * 0.498 + 24px));
+  height: var(--h);
   aspect-ratio: 498 / 1000;
   pointer-events: none;
   transform: translate3d(var(--x), 0, 0);
@@ -70,16 +71,16 @@
 
 .character[data-section='inicio'] { --x: 0px; }
 .character[data-section='inicio'] .character__img { animation: wave 2.4s ease-in-out infinite; }
-.character[data-section='perfil'] { --x: 30px; }
-.character[data-section='habilidades'] { --x: -20px; }
+.character[data-section='perfil'] { --x: -30px; }
+.character[data-section='habilidades'] { --x: -10px; }
 .character[data-section='habilidades'] .character__img { animation: type 0.9s ease-in-out infinite; }
-.character[data-section='experiencia'] { --x: 50px; }
+.character[data-section='experiencia'] { --x: -50px; }
 .character[data-section='experiencia'] .character__img { animation: walk 1.1s ease-in-out infinite; }
-.character[data-section='projetos'] { --x: 70px; }
+.character[data-section='projetos'] { --x: 0px; }
 .character[data-section='projetos'] .character__img { animation: point 1.6s ease-in-out infinite; }
-.character[data-section='conquistas'] { --x: 20px; }
+.character[data-section='conquistas'] { --x: -20px; }
 .character[data-section='conquistas'] .character__img { animation: cheer 1.3s ease-in-out infinite; }
-.character[data-section='contato'] { --x: 10px; }
+.character[data-section='contato'] { --x: -10px; }
 
 /* ---------- Balão de fala ---------- */
 .character__bubble {
