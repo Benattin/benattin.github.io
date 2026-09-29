@@ -72,8 +72,11 @@ export function updateCharacter(direction = 0) {
   say(line, { title, hold: true });
 }
 
+// Seções sem arte própria reaproveitam uma pose existente
+const POSE_ALIAS = { formacoes: 'perfil' };
+
 function applyPose(section) {
-  img.src = POSES[section] || POSES.inicio;
+  img.src = POSES[section] || POSES[POSE_ALIAS[section]] || POSES.inicio;
   el.dataset.section = section;
 }
 

@@ -11,15 +11,20 @@ const title = (label) => scrambleText(label, 'h2', 'panel__title');
 const chips = (items, cls = '') => `<ul class="chips ${cls}">${items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
 const extLink = (href, label) => `<a class="link" href="${href}" target="_blank" rel="noopener">${esc(label)} <span aria-hidden="true">↗</span></a>`;
 const heading = (text) => `<h3 class="subhead">${esc(text)}</h3>`;
-const milestones = (items, cls = '') => `
-    <ol class="timeline ${cls}">${items
-      .map((a) => `
-        <li>
-          <p class="timeline__when">${esc(a.place)}${a.date ? ` · ${esc(a.date)}` : ''}</p>
-          <p class="timeline__what">${esc(a.title)}</p>
-          <p class="muted">${esc(a.description)}</p>
+const menuTitle = (d, id) => title(d.menu[content.sections.indexOf(id)]);
+// Cards de marcos (formações, conquistas): ícone, instituição e ano, título e descrição
+const milestones = (items, icon) => `
+    <ul class="milestones">${items
+      .map((a, i) => `
+        <li class="card milestone" style="--i:${i}">
+          <span class="milestone__icon" aria-hidden="true">${icon}</span>
+          <div>
+            <p class="milestone__place">${esc(a.place)}${a.date ? ` · ${esc(a.date)}` : ''}</p>
+            <h3 class="milestone__title">${esc(a.title)}</h3>
+            <p class="muted">${esc(a.description)}</p>
+          </div>
         </li>`)
-      .join('')}</ol>`;
+      .join('')}</ul>`;
 // Fala do personagem ao passar o mouse; {x} é trocado pelo nome do item
 const sayAttr = (template, x = '') => `data-say="${esc(template.replace('{x}', x))}"`;
 
@@ -41,7 +46,7 @@ function inicio(d) {
       <dl class="numbers">${numbers.map(([n, label]) => `<div><dt>${String(n).padStart(2, '0')}</dt><dd>${esc(label)}</dd></div>`).join('')}</dl>
       <div class="actions">
         <a class="btn btn--primary" href="${links.cv}" download ${sayAttr(d.characterSays.cv)}>${esc(d.hero.cv)}</a>
-        <button type="button" class="btn" data-go="6" ${sayAttr(d.characterSays.contact)}>${esc(d.hero.contact)} →</button>
+        <button type="button" class="btn" data-go="${content.sections.indexOf('contato')}" ${sayAttr(d.characterSays.contact)}>${esc(d.hero.contact)} →</button>
       </div>
       <p class="callout">${esc(d.hero.now)}</p>
     </div>`;
@@ -115,23 +120,11 @@ function experiencia(d) {
       .join('')}</ol>`;
 }
 
-function projetos(d) {
-  const list = d.projectList.filter((p) => state.filter === 'all' || p.category === state.filter);
-  return `
-    ${title(d.menu[4])}
-    <div class="filters" role="tablist">${Object.entries(d.projects.filters)
-      .map(([key, label]) => {
-        const count = key === 'all' ? d.projectList.length : d.projectList.filter((p) => p.category === key).length;
-        return `<button type="button" role="tab" class="filters__btn ${state.filter === key ? 'is-on' : ''}" aria-selected="${state.filter === key}" data-filter="${key}">${esc(label)} <span>${count}</span></button>`;
-      })
-      .join('')}</div>
-    <div class="projects">${list
-      .map((p, i) => `
+const projectCard = (d, p, i) => `
         <article class="card project ${p.featured ? 'project--featured' : ''}" style="--i:${i}" ${sayAttr(d.characterSays.project, p.title)}>
           <header class="card__head">
             <span class="card__index">${pad(d.projectList.indexOf(p))}</span>
             <h3>${esc(p.title)}</h3>
-            ${p.featured ? `<span class="badge">${esc(d.projects.featured)}</span>` : ''}
             <span class="muted">${esc(p.date)}</span>
           </header>
           <p>${esc(p.description)}</p>
@@ -141,17 +134,39 @@ function projetos(d) {
             ${p.demo ? extLink(p.demo, d.projects.demo) : ''}
             ${!p.repo && !p.demo ? `<span class="muted">● ${esc(d.projects.local)}</span>` : ''}
           </footer>
-        </article>`)
-      .join('')}</div>
+        </article>`;
 
-    ${heading(d.complementaryTitle)}
-    ${milestones(d.complementary)}`;
+function projetos(d) {
+  const list = d.projectList.filter((p) => state.filter === 'all' || p.category === state.filter);
+  const groups = [
+    [d.projects.groups.featured, list.filter((p) => p.featured)],
+    [d.projects.groups.others, list.filter((p) => !p.featured)],
+  ].filter(([, items]) => items.length);
+  return `
+    ${menuTitle(d, 'projetos')}
+    <div class="filters" role="tablist">${Object.entries(d.projects.filters)
+      .map(([key, label]) => {
+        const count = key === 'all' ? d.projectList.length : d.projectList.filter((p) => p.category === key).length;
+        return `<button type="button" role="tab" class="filters__btn ${state.filter === key ? 'is-on' : ''}" aria-selected="${state.filter === key}" data-filter="${key}">${esc(label)} <span>${count}</span></button>`;
+      })
+      .join('')}</div>
+    ${groups
+      .map(([label, items]) => `
+    ${heading(label)}
+    <div class="projects">${items.map((p, i) => projectCard(d, p, i)).join('')}</div>`)
+      .join('')}`;
+}
+
+function formacoes(d) {
+  return `
+    ${menuTitle(d, 'formacoes')}
+    ${milestones(d.complementary, '✦')}`;
 }
 
 function conquistas(d) {
   return `
-    ${title(d.menu[5])}
-    ${milestones(d.achievements, 'timeline--trophies')}`;
+    ${menuTitle(d, 'conquistas')}
+    ${milestones(d.achievements, '★')}`;
 }
 
 function contato(d) {
@@ -162,7 +177,7 @@ function contato(d) {
     [d.contact.cv, `<a href="${links.cv}" download>Gustavo-Benatti.pdf</a>`, ''],
   ];
   return `
-    ${title(d.menu[6])}
+    ${menuTitle(d, 'contato')}
     <p class="lead lead--xl">${esc(d.contact.title)}</p>
     <ul class="contact">${rows
       .map(([label, value, action]) => `<li ${sayAttr(d.characterSays.contact)}><span class="contact__label">${esc(label)}</span><span class="contact__value">${value}</span>${action}</li>`)
@@ -170,4 +185,4 @@ function contato(d) {
     <p class="muted small">© ${new Date().getFullYear()} Gustavo Benatti · São Paulo</p>`;
 }
 
-export const panels = { inicio, perfil, habilidades, experiencia, projetos, conquistas, contato };
+export const panels = { inicio, perfil, habilidades, experiencia, projetos, formacoes, conquistas, contato };

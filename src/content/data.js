@@ -9,7 +9,7 @@ const links = {
 
 const stats = { frontend: 75, backend: 45, lideranca: 55, ia: 70 };
 
-const sections = ['inicio', 'perfil', 'habilidades', 'experiencia', 'projetos', 'conquistas', 'contato'];
+const sections = ['inicio', 'perfil', 'habilidades', 'experiencia', 'projetos', 'formacoes', 'conquistas', 'contato'];
 
 // Categoria e destaque de cada projeto, na mesma ordem de projectList
 const projectMeta = [
@@ -21,12 +21,12 @@ const projectMeta = [
   { category: 'web' },
 ];
 
-const files = ['inicio.ts', 'perfil.ts', 'habilidades.ts', 'experiencia.json', 'projetos.tsx', 'conquistas.md', 'contato.sh'];
+const files = ['inicio.ts', 'perfil.ts', 'habilidades.ts', 'experiencia.json', 'projetos.tsx', 'formacoes.md', 'conquistas.md', 'contato.sh'];
 
 const pt = {
   lang: 'pt',
   locale: 'pt-BR',
-  menu: ['Início', 'Perfil', 'Habilidades', 'Experiência', 'Projetos', 'Conquistas', 'Contato'],
+  menu: ['Início', 'Perfil', 'Habilidades', 'Experiência', 'Projetos', 'Formações complementares', 'Conquistas', 'Contato'],
   files,
   role: 'Desenvolvedor Web',
   status: 'disponível para estágio',
@@ -36,6 +36,7 @@ const pt = {
     'Minhas ferramentas do dia a dia.',
     'Minha trajetória até aqui.',
     'Os projetos que mais me orgulham.',
+    'O que aprendi fora da sala de aula.',
     'Alguns marcos no caminho.',
     'Bora conversar?',
   ],
@@ -145,6 +146,7 @@ const pt = {
     demo: 'ver online',
     local: 'roda localmente',
     featured: 'destaque',
+    groups: { featured: 'Principais projetos', others: 'Outros projetos' },
     filters: { all: 'todos', ia: 'IA', web: 'web' },
   },
   projectList: [
@@ -194,7 +196,6 @@ const pt = {
     },
   ],
   achievementsTitle: 'Conquistas',
-  complementaryTitle: 'Formações complementares',
   complementary: [
     { title: 'Programa META SPARK', place: 'Meta e JA São Paulo', date: '', description: 'Programa de tecnologia e empreendedorismo para jovens.' },
     { title: 'Feira do Empreendedor SP 2025', place: 'Sebrae', date: '2025', description: '40 horas de imersão em empreendedorismo e negócios.' },
@@ -218,8 +219,8 @@ const pt = {
 const en = {
   lang: 'en',
   locale: 'en-US',
-  menu: ['Home', 'Profile', 'Skills', 'Experience', 'Projects', 'Achievements', 'Contact'],
-  files: ['home.ts', 'profile.ts', 'skills.ts', 'experience.json', 'projects.tsx', 'achievements.md', 'contact.sh'],
+  menu: ['Home', 'Profile', 'Skills', 'Experience', 'Projects', 'Complementary training', 'Achievements', 'Contact'],
+  files: ['home.ts', 'profile.ts', 'skills.ts', 'experience.json', 'projects.tsx', 'training.md', 'achievements.md', 'contact.sh'],
   role: 'Web Developer',
   status: 'open to internships',
   character: [
@@ -228,6 +229,7 @@ const en = {
     'My everyday toolkit.',
     'My journey so far.',
     "The projects I'm proudest of.",
+    'What I learned outside the classroom.',
     'A few milestones.',
     "Let's talk?",
   ],
@@ -337,6 +339,7 @@ const en = {
     demo: 'view live',
     local: 'runs locally',
     featured: 'featured',
+    groups: { featured: 'Main projects', others: 'Other projects' },
     filters: { all: 'all', ia: 'AI', web: 'web' },
   },
   projectList: [
@@ -386,7 +389,6 @@ const en = {
     },
   ],
   achievementsTitle: 'Achievements',
-  complementaryTitle: 'Complementary training',
   complementary: [
     { title: 'META SPARK Program', place: 'Meta and JA São Paulo', date: '', description: 'Technology and entrepreneurship program for young people.' },
     { title: 'Entrepreneur Fair SP 2025', place: 'Sebrae', date: '2025', description: '40 hours of immersion in entrepreneurship and business.' },

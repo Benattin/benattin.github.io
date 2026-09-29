@@ -54,7 +54,11 @@
 .project__links { display: flex; gap: 18px; margin-top: 14px; font-size: 12px; }
 
 /* ---------- Conquistas ---------- */
-.timeline--trophies li::before { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+.milestones { display: grid; gap: 10px; }
+.milestone { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; animation: rise 0.45s calc(var(--i) * 80ms) var(--ease) both; }
+.milestone__icon { display: grid; place-items: center; width: 44px; height: 44px; font-size: 18px; color: var(--purple-soft); border: 1px solid rgba(139, 92, 246, 0.45); background: rgba(139, 92, 246, 0.1); box-shadow: 0 0 14px var(--accent-glow); }
+.milestone__place { color: var(--accent); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+.milestone__title { font-size: 16px; font-weight: 600; margin: 4px 0; }
 
 /* ---------- Contato ---------- */
 .contact { display: grid; }
