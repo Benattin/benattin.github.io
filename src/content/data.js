@@ -90,6 +90,7 @@ const pt = {
     languages: ['Português fluente', 'Inglês intermediário e técnico', 'Espanhol básico'],
   },
   skills: [
+    { group: 'Comportamentais', note: 'Como eu trabalho.', items: ['Proatividade', 'Aprendizado rápido', 'Responsabilidade', 'Adaptação', 'Comunicação', 'Foco em resultados'] },
     { group: 'Linguagens', note: 'Base de tudo o que construo.', items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Python'] },
     { group: 'Frontend', note: 'Sites, catálogos e interfaces responsivas.', items: ['Design responsivo', 'React', 'Vite', 'Three.js', 'Animações CSS', 'GitHub Pages'] },
     { group: 'Backend e APIs', note: 'Servidores locais que ligam interface e IA.', items: ['Node.js', 'Python', 'FastAPI', 'APIs REST', 'JSON'] },
@@ -97,7 +98,6 @@ const pt = {
     { group: 'Automação', note: 'Rotinas e apps de desktop no Windows.', items: ['Scripts em Python', 'App desktop (pywebview)', 'Leitura de PDF, Word e Excel', 'Build de sites estáticos'] },
     { group: 'Ferramentas', note: 'O que uso no dia a dia.', items: ['Git', 'GitHub', 'VS Code / Cursor', 'npm', 'pytest'] },
     { group: 'Segurança', note: 'Privacidade vem primeiro.', items: ['Privacidade local (local-first)', 'Confirmação de ações sensíveis', 'Segurança de endpoints (Cisco)', 'Noções de segurança da informação'] },
-    { group: 'Comportamentais', note: 'Como eu trabalho.', items: ['Proatividade', 'Aprendizado rápido', 'Responsabilidade', 'Adaptação', 'Comunicação', 'Foco em resultados'] },
   ],
   missionsCounter: 'missão {c} de {t}',
   missions: [
@@ -194,10 +194,14 @@ const pt = {
     },
   ],
   achievementsTitle: 'Conquistas',
-  achievements: [
-    { title: 'Intercâmbio Londres e Paris', place: 'Experimento', date: '2024', description: 'Um mês fora do país praticando inglês e vivendo outra cultura.' },
+  complementaryTitle: 'Formações complementares',
+  complementary: [
     { title: 'Programa META SPARK', place: 'Meta e JA São Paulo', date: '', description: 'Programa de tecnologia e empreendedorismo para jovens.' },
     { title: 'Feira do Empreendedor SP 2025', place: 'Sebrae', date: '2025', description: '40 horas de imersão em empreendedorismo e negócios.' },
+    { title: 'RoboCup', place: 'Robótica', date: '', description: 'Participação em competição de robótica.' },
+  ],
+  achievements: [
+    { title: 'Intercâmbio Londres e Paris', place: 'Experimento', date: '2024', description: 'Um mês fora do país praticando inglês e vivendo outra cultura.' },
     { title: 'Técnico formado', place: 'Etec Sebrae', date: '2025', description: 'Conclusão do Ensino Médio Técnico em Desenvolvimento de Sistemas.' },
   ],
   contact: {
@@ -278,6 +282,7 @@ const en = {
     languages: ['Portuguese (fluent)', 'English (intermediate and technical)', 'Spanish (basic)'],
   },
   skills: [
+    { group: 'Soft skills', note: 'How I work.', items: ['Proactivity', 'Fast learning', 'Responsibility', 'Adaptability', 'Communication', 'Results-driven'] },
     { group: 'Languages', note: 'The foundation of everything I build.', items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Python'] },
     { group: 'Frontend', note: 'Websites, catalogs and responsive interfaces.', items: ['Responsive design', 'React', 'Vite', 'Three.js', 'CSS animations', 'GitHub Pages'] },
     { group: 'Backend & APIs', note: 'Local servers that connect UI and AI.', items: ['Node.js', 'Python', 'FastAPI', 'REST APIs', 'JSON'] },
@@ -285,7 +290,6 @@ const en = {
     { group: 'Automation', note: 'Routines and desktop apps on Windows.', items: ['Python scripts', 'Desktop app (pywebview)', 'PDF, Word and Excel parsing', 'Static site builds'] },
     { group: 'Tools', note: 'What I use every day.', items: ['Git', 'GitHub', 'VS Code / Cursor', 'npm', 'pytest'] },
     { group: 'Security', note: 'Privacy comes first.', items: ['Local-first privacy', 'Confirmation for sensitive actions', 'Endpoint security (Cisco)', 'Information security basics'] },
-    { group: 'Soft skills', note: 'How I work.', items: ['Proactivity', 'Fast learning', 'Responsibility', 'Adaptability', 'Communication', 'Results-driven'] },
   ],
   missionsCounter: 'mission {c} of {t}',
   missions: [
@@ -382,10 +386,14 @@ const en = {
     },
   ],
   achievementsTitle: 'Achievements',
-  achievements: [
-    { title: 'London and Paris exchange', place: 'Experimento', date: '2024', description: 'A month abroad practicing English and living another culture.' },
+  complementaryTitle: 'Complementary training',
+  complementary: [
     { title: 'META SPARK Program', place: 'Meta and JA São Paulo', date: '', description: 'Technology and entrepreneurship program for young people.' },
     { title: 'Entrepreneur Fair SP 2025', place: 'Sebrae', date: '2025', description: '40 hours of immersion in entrepreneurship and business.' },
+    { title: 'RoboCup', place: 'Robotics', date: '', description: 'Took part in a robotics competition.' },
+  ],
+  achievements: [
+    { title: 'London and Paris exchange', place: 'Experimento', date: '2024', description: 'A month abroad practicing English and living another culture.' },
     { title: 'Technician graduate', place: 'Etec Sebrae', date: '2025', description: 'Completed Technical High School in Systems Development.' },
   ],
   contact: {

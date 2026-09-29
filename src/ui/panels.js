@@ -11,6 +11,15 @@ const title = (label) => scrambleText(label, 'h2', 'panel__title');
 const chips = (items, cls = '') => `<ul class="chips ${cls}">${items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
 const extLink = (href, label) => `<a class="link" href="${href}" target="_blank" rel="noopener">${esc(label)} <span aria-hidden="true">↗</span></a>`;
 const heading = (text) => `<h3 class="subhead">${esc(text)}</h3>`;
+const milestones = (items, cls = '') => `
+    <ol class="timeline ${cls}">${items
+      .map((a) => `
+        <li>
+          <p class="timeline__when">${esc(a.place)}${a.date ? ` · ${esc(a.date)}` : ''}</p>
+          <p class="timeline__what">${esc(a.title)}</p>
+          <p class="muted">${esc(a.description)}</p>
+        </li>`)
+      .join('')}</ol>`;
 // Fala do personagem ao passar o mouse; {x} é trocado pelo nome do item
 const sayAttr = (template, x = '') => `data-say="${esc(template.replace('{x}', x))}"`;
 
@@ -133,20 +142,16 @@ function projetos(d) {
             ${!p.repo && !p.demo ? `<span class="muted">● ${esc(d.projects.local)}</span>` : ''}
           </footer>
         </article>`)
-      .join('')}</div>`;
+      .join('')}</div>
+
+    ${heading(d.complementaryTitle)}
+    ${milestones(d.complementary)}`;
 }
 
 function conquistas(d) {
   return `
     ${title(d.menu[5])}
-    <ol class="timeline timeline--trophies">${d.achievements
-      .map((a) => `
-        <li>
-          <p class="timeline__when">${esc(a.place)}${a.date ? ` · ${esc(a.date)}` : ''}</p>
-          <p class="timeline__what">${esc(a.title)}</p>
-          <p class="muted">${esc(a.description)}</p>
-        </li>`)
-      .join('')}</ol>`;
+    ${milestones(d.achievements, 'timeline--trophies')}`;
 }
 
 function contato(d) {
