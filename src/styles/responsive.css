@@ -11,7 +11,9 @@
   .brand__name { font-size: 18px; }
   .status { flex-direction: column; align-items: flex-end; gap: 6px; }
   .status__pill { padding: 3px 8px; font-size: 10px; }
-  .frame--bottom { display: none; }
+  .status__clock { display: none; }
+  .frame--bottom { top: 42px; bottom: auto; justify-content: flex-end; }
+  .lang button { padding: 3px 8px; font-size: 10px; }
 
   .menu { left: 10px; right: 10px; top: auto; bottom: 10px; transform: none; }
   .menu__rail, .menu__list { display: none; }
