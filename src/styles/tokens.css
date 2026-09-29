@@ -1,0 +1,27 @@
+:root {
+  --bg: #08060d;
+  --ink: #f5f3fa;
+  --ink-2: #d6d1e2;
+  --gray: #8b84a0;
+  --gray-2: #5b5470;
+  --line: rgba(245, 243, 250, 0.1);
+  --line-strong: rgba(245, 243, 250, 0.2);
+
+  /* Identidade: preto profundo, violeta (principal), índigo (apoio), lilás, branco e cinzas */
+  --purple: #8b5cf6;
+  --purple-soft: #c4b5fd;
+  --purple-glow: rgba(139, 92, 246, 0.35);
+  --accent: #818cf8;
+  --accent-glow: rgba(129, 140, 248, 0.35);
+  --grad: linear-gradient(90deg, #a78bfa, #6366f1);
+
+  --panel: rgba(11, 8, 18, 0.74);
+  --panel-2: rgba(0, 0, 0, 0.28);
+
+  --display: 'Anton', 'Impact', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --edge: 32px;
+  --radius: 4px;
+}

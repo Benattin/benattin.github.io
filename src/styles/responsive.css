@@ -1,0 +1,33 @@
+@media (max-width: 1100px) {
+  .frame__hint { display: none; }
+  .sheet { width: min(520px, 52vw); }
+}
+
+@media (max-width: 860px) {
+  :root { --edge: 14px; }
+  .scanlines { display: none; }
+  .frame--top { top: 12px; align-items: flex-start; }
+  .brand { flex-direction: column; gap: 2px; }
+  .brand__name { font-size: 18px; }
+  .status { flex-direction: column; align-items: flex-end; gap: 6px; }
+  .status__pill { padding: 3px 8px; font-size: 10px; }
+  .frame--bottom { display: none; }
+
+  .menu { left: 10px; right: 10px; top: auto; bottom: 10px; transform: none; }
+  .menu__rail, .menu__list { display: none; }
+  .menu__bar { display: flex; flex: 1; align-items: center; justify-content: space-between; gap: 8px; padding: 8px; background: var(--panel); border: 1px solid var(--line); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .menu__step { width: 42px; height: 42px; font-size: 20px; border: 1px solid var(--line-strong); }
+  .menu__current { display: flex; gap: 10px; align-items: center; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em; }
+  .menu__current .menu__index { color: var(--accent); }
+
+  .sheet { left: 10px; right: 10px; width: auto; top: auto; bottom: 78px; transform: none; max-height: calc(100dvh - 160px); }
+  .sheet.is-entering { animation: sheetInMobile 0.6s var(--ease); }
+  @keyframes sheetInMobile { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  .sheet__body { padding: 18px; }
+  .panel__title { font-size: 34px; margin-bottom: 14px; }
+  .hero__name { font-size: 44px; }
+  .numbers dt { font-size: 24px; }
+  .certs { grid-template-columns: 1fr; }
+  .contact li { grid-template-columns: 1fr auto; }
+  .contact__label { grid-column: 1 / -1; }
+}

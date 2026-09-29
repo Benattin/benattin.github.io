@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Gustavo Benatti · Desenvolvedor Web</title>
+    <meta name="description" content="Portfólio de Gustavo Benatti, desenvolvedor web em São Paulo. Projetos de IA local e sites." />
+    <meta name="theme-color" content="#08060d" />
+    <meta property="og:title" content="Gustavo Benatti · Desenvolvedor Web" />
+    <meta property="og:description" content="Portfólio de Gustavo Benatti: desenvolvimento web e IA aplicada." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%2308060d'/><text x='16' y='22' font-size='15' text-anchor='middle' fill='%23a855f7' font-family='monospace' font-weight='700'>GB</text></svg>" />
+  </head>
+  <body>
+    <div id="boot" class="boot" role="status">
+      <div class="boot__inner">
+        <p class="boot__kicker" data-i18n="bootKicker"></p>
+        <h1 class="boot__name">Gustavo Benatti</h1>
+        <div class="boot__bar"><i></i></div>
+        <div class="boot__row"><span class="boot__task"></span><span class="boot__pct">000</span></div>
+      </div>
+    </div>
+
+    <canvas id="scene" aria-hidden="true"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+    <header class="frame frame--top">
+      <a class="brand" href="#inicio" data-go="0" style="text-decoration: none">
+        <span class="brand__name">Gustavo Benatti</span>
+        <span class="brand__role" data-i18n="role"></span>
+      </a>
+      <div class="status">
+        <span class="status__pill"><span class="pulse" aria-hidden="true"></span><span data-i18n="status"></span></span>
+        <span class="status__clock" id="clock"></span>
+      </div>
+    </header>
+
+    <figure class="character" id="character" aria-hidden="true">
+      <p class="character__bubble" id="bubble"></p>
+      <span class="character__body" title="Clique em mim"><img class="character__img" alt="" draggable="false" /></span>
+      <span class="character__shadow"></span>
+    </figure>
+
+    <nav class="menu" id="menu" aria-label="Menu"></nav>
+    <main class="sheet" id="sheet" aria-live="polite"></main>
+
+    <footer class="frame frame--bottom">
+      <span class="frame__hint"><span class="kbd">↑</span><span class="kbd">↓</span> <span data-i18n="hint"></span></span>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="pt">pt</button>
+        <button type="button" data-lang="en">en</button>
+      </div>
+    </footer>
+
+    <div class="flash" id="flash" aria-hidden="true"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

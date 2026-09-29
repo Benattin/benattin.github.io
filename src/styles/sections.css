@@ -1,0 +1,66 @@
+/* ---------- Início ---------- */
+.hero__kicker { color: var(--gray); }
+.hero__name { font-family: var(--display); text-transform: uppercase; font-size: clamp(46px, 5.4vw, 76px); line-height: 0.92; margin: 6px 0 10px; background: linear-gradient(180deg, #fff 40%, #c9bfe0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero__title { display: inline-block; color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; font-size: 13px; font-weight: 600; }
+.hero__tagline { margin: 14px 0 8px; color: var(--ink-2); }
+.hero__meta { display: flex; align-items: center; gap: 10px; color: var(--gray); font-size: 12px; }
+.numbers { display: grid; grid-template-columns: repeat(3, 1fr); margin: 22px 0 4px; border: 1px solid var(--line); }
+.numbers div { padding: 12px 14px; }
+.numbers div + div { border-left: 1px solid var(--line); }
+.numbers dt { font-family: var(--display); font-size: 30px; line-height: 1; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.numbers dd { font-size: 10px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 4px; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+
+/* ---------- Perfil ---------- */
+.stats { display: grid; gap: 12px; }
+.stat { display: grid; grid-template-columns: 96px 1fr 30px; align-items: center; gap: 12px; font-size: 12px; }
+.stat__label { color: var(--ink-2); }
+.stat__value { text-align: right; font-weight: 400; color: var(--gray); font-variant-numeric: tabular-nums; }
+.stat__bar { height: 6px; background: var(--line); overflow: hidden; }
+.stat__bar i { display: block; height: 100%; width: var(--v); background: var(--grad); box-shadow: 0 0 10px var(--purple-glow); animation: grow 1.2s calc(var(--i) * 120ms) var(--ease) both; }
+@keyframes grow { from { width: 0; } }
+.certs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.certs li { padding: 10px 12px; border: 1px solid var(--line); background: var(--panel-2); display: grid; gap: 3px; transition: border-color 0.25s; }
+.certs li:hover { border-color: rgba(168, 85, 247, 0.45); }
+.certs b { font-size: 12px; font-weight: 600; line-height: 1.35; }
+.certs span { font-size: 10px; color: var(--gray); }
+
+/* ---------- Habilidades ---------- */
+.skills { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.skill__note { margin-top: 6px; font-size: 11px; line-height: 1.5; color: var(--gray); }
+@media (max-width: 860px) { .skills { grid-template-columns: 1fr; } }
+.skill .card__head h3 { text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; }
+
+/* ---------- Experiência ---------- */
+.missions { position: relative; display: grid; gap: 14px; padding-left: 22px; }
+.missions::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(var(--purple), transparent); }
+.mission { position: relative; padding: 14px 16px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.02); animation: rise 0.45s calc(var(--i) * 80ms) var(--ease) both; transition: border-color 0.2s, background 0.2s; }
+.mission::before { content: ''; position: absolute; left: -22px; top: 20px; width: 11px; height: 11px; border-radius: 50%; background: var(--bg, #0b0812); border: 2px solid var(--purple); }
+.mission:hover, .mission.is-focus { border-color: var(--purple); background: rgba(139, 92, 246, 0.08); }
+.mission .bullets { margin: 10px 0; }
+.mission__counter { color: var(--gray); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+.mission__company { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 24px; line-height: 1.05; margin: 6px 0 4px; }
+.mission__role { color: var(--purple-soft); margin-bottom: 4px; }
+/* ---------- Projetos ---------- */
+.filters { display: flex; gap: 6px; margin-bottom: 16px; }
+.filters__btn { padding: 6px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; border: 1px solid var(--line); color: var(--gray); transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.filters__btn span { color: var(--gray-2); margin-left: 4px; }
+.filters__btn:hover { color: var(--ink); }
+.filters__btn.is-on { color: #fff; background: var(--purple); border-color: var(--purple); }
+.filters__btn.is-on span { color: rgba(255, 255, 255, 0.7); }
+.projects { display: grid; gap: 12px; }
+.project p { margin-top: 10px; line-height: 1.65; color: var(--ink-2); font-size: 13px; }
+.project--featured { border-color: rgba(139, 92, 246, 0.3); background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.04) 60%, transparent); }
+.project__links { display: flex; gap: 18px; margin-top: 14px; font-size: 12px; }
+
+/* ---------- Conquistas ---------- */
+.timeline--trophies li::before { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+
+/* ---------- Contato ---------- */
+.contact { display: grid; }
+.contact li { display: grid; grid-template-columns: 90px 1fr auto; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.contact__label { color: var(--gray); text-transform: uppercase; font-size: 10px; letter-spacing: 0.12em; }
+.contact__value { word-break: break-all; }
+.contact__value a { text-decoration: none; }
+.contact__value > a:not(.link):hover { color: var(--purple-soft); }
+.panel--contato .small { margin-top: 22px; }

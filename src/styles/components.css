@@ -1,0 +1,60 @@
+/* ---------- Tipografia de conteúdo ---------- */
+.subhead { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; color: var(--purple-soft); text-transform: uppercase; letter-spacing: 0.14em; margin: 26px 0 12px; }
+.subhead::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.lead { line-height: 1.75; color: var(--ink-2); }
+.lead--xl { font-size: 19px; line-height: 1.45; color: var(--ink); margin-bottom: 18px; }
+
+/* ---------- Botões e links ---------- */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; text-decoration: none; font-size: 12px; border: 1px solid var(--line-strong); transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s var(--ease); }
+.btn:hover { border-color: var(--purple-soft); transform: translateY(-1px); }
+.btn--primary { border-color: var(--purple); background: var(--purple); color: #fff; box-shadow: 0 8px 24px var(--purple-glow); }
+.btn--primary:hover { background: #9333ea; box-shadow: 0 10px 30px var(--purple-glow); }
+.link { color: var(--purple-soft); text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
+.link:hover { background-size: 100% 1px; color: var(--ink); }
+.chip-btn { font-size: 10px; padding: 3px 8px; border: 1px solid var(--line-strong); color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s, border-color 0.2s; }
+.chip-btn:hover { color: var(--ink); border-color: var(--purple); }
+
+/* ---------- Chips ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.chips li { font-size: 11px; padding: 4px 9px; border: 1px solid rgba(168, 85, 247, 0.22); color: var(--purple-soft); background: rgba(168, 85, 247, 0.07); transition: background 0.2s, color 0.2s; }
+.chips li:hover { background: rgba(168, 85, 247, 0.18); color: var(--ink); }
+.chips--sm li { font-size: 10px; padding: 3px 7px; }
+
+/* ---------- Cartões ---------- */
+.card { position: relative; padding: 16px; border: 1px solid var(--line); background: var(--panel-2); transition: border-color 0.3s, transform 0.3s var(--ease), background 0.3s; animation: rise 0.6s calc(var(--i, 0) * 70ms) var(--ease) both; }
+.card:hover { border-color: rgba(168, 85, 247, 0.5); background: rgba(168, 85, 247, 0.05); transform: translateX(-3px); }
+.card__head { display: flex; align-items: baseline; gap: 10px; }
+.card__head h3 { flex: 1; font-size: 15px; font-weight: 600; }
+.card__index { color: var(--accent); font-size: 11px; font-variant-numeric: tabular-nums; }
+.badge { font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; padding: 2px 6px; color: #fff; background: var(--grad); }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+
+/* ---------- Listas ---------- */
+.bullets { display: grid; gap: 10px; margin-top: 16px; }
+.bullets li { position: relative; padding-left: 18px; line-height: 1.6; color: var(--ink-2); }
+.bullets li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; background: var(--accent); box-shadow: 0 0 8px var(--accent-glow); }
+
+.timeline { position: relative; display: grid; gap: 18px; padding-left: 20px; }
+.timeline::before { content: ''; position: absolute; left: 3px; top: 6px; bottom: 6px; width: 1px; background: linear-gradient(180deg, var(--purple), var(--accent), transparent); }
+.timeline li { position: relative; animation: rise 0.6s var(--ease) both; }
+.timeline li::before { content: ''; position: absolute; left: -21px; top: 5px; width: 9px; height: 9px; border: 2px solid var(--purple); background: var(--bg); border-radius: 50%; }
+.timeline__when { font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
+.timeline__what { font-weight: 600; margin: 4px 0 2px; line-height: 1.4; }
+.timeline li .muted { line-height: 1.55; font-size: 13px; }
+
+/* ---------- Código ---------- */
+.code { font-family: var(--mono); font-size: 12px; line-height: 1.7; padding: 14px 16px; background: rgba(0, 0, 0, 0.4); border: 1px solid var(--line); border-left: 2px solid var(--purple); white-space: pre-wrap; margin-bottom: 18px; }
+.tk-k { color: var(--accent); } .tk-v { color: var(--ink); } .tk-p { color: var(--purple-soft); } .tk-s { color: #a7f3d0; } .tk-c { color: var(--purple); }
+
+/* ---------- Callout ---------- */
+.callout { position: relative; padding: 14px 16px 14px 18px; line-height: 1.6; background: linear-gradient(90deg, rgba(168, 85, 247, 0.12), transparent); border-left: 2px solid var(--purple); color: var(--ink-2); }
+
+.pulse { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); animation: pulse 2s infinite; flex: none; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+
+/* ---------- Próxima seção ---------- */
+.edge { display: flex; align-items: center; gap: 6px; width: 100%; margin-top: 28px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 11px; color: var(--gray); text-align: left; transition: color 0.2s; }
+.edge b { color: var(--ink); font-weight: 600; }
+.edge span { margin-left: auto; animation: bob 1.6s ease-in-out infinite; }
+.edge:hover { color: var(--ink); }
+@keyframes bob { 50% { transform: translateY(4px); } }
