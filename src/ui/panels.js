@@ -1,6 +1,7 @@
 import { content } from '../content/data.js';
 import { state } from '../core/state.js';
 import { esc, pad } from './dom.js';
+import { github } from './github.js';
 
 const { links, stats } = content;
 
@@ -9,7 +10,7 @@ const scrambleText = (text, tag, cls) =>
   `<${tag} class="${cls}" aria-label="${esc(text)}"><span class="scramble" aria-hidden="true" data-text="${esc(text)}">${esc(text)}</span></${tag}>`;
 const title = (label) => scrambleText(label, 'h2', 'panel__title');
 const chips = (items, cls = '') => `<ul class="chips ${cls}">${items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
-const extLink = (href, label) => `<a class="link" href="${href}" target="_blank" rel="noopener">${esc(label)} <span aria-hidden="true">↗</span></a>`;
+const extLink = (href, label) => `<a class="link" href="${esc(href)}" target="_blank" rel="noopener">${esc(label)} <span aria-hidden="true">↗</span></a>`;
 const heading = (text) => `<h3 class="subhead">${esc(text)}</h3>`;
 const menuTitle = (d, id) => title(d.menu[content.sections.indexOf(id)]);
 // Cards de marcos (formações, conquistas): ícone, instituição e ano, título e descrição
@@ -82,8 +83,8 @@ function perfil(d) {
     ${heading(d.profile.certTitle)}
     <ul class="certs">${d.profile.certs
       .map((c) => {
-        const [name, issuer] = c.split(' · ');
-        return `<li><b>${esc(name)}</b><span>${esc(issuer || '')}</span></li>`;
+        const [name, ...details] = c.split(' · ');
+        return `<li><b>${esc(name)}</b><span>${esc(details.join(' · '))}</span></li>`;
       })
       .join('')}</ul>
 
@@ -154,7 +155,34 @@ function projetos(d) {
       .map(([label, items]) => `
     ${heading(label)}
     <div class="projects">${items.map((p, i) => projectCard(d, p, i)).join('')}</div>`)
-      .join('')}`;
+      .join('')}
+    ${state.filter === 'all' ? githubRepos(d) : ''}`;
+}
+
+const prettyName = (name) => name.replace(/[-_]+/g, ' ').trim();
+
+function githubRepos(d) {
+  const g = d.projects.github;
+  if (github.status === 'loading') return `${heading(d.projects.groups.github)}<p class="muted small">${esc(g.loading)}</p>`;
+  if (github.status === 'error') return `${heading(d.projects.groups.github)}<p class="muted small">${extLink(links.github, g.error)}</p>`;
+  if (!github.repos.length) return '';
+  return `
+    ${heading(d.projects.groups.github)}
+    <div class="projects">${github.repos
+      .map((r, i) => `
+        <article class="card project" style="--i:${i}" ${sayAttr(d.characterSays.project, prettyName(r.name))}>
+          <header class="card__head">
+            <h3>${esc(prettyName(r.name))}</h3>
+            <span class="muted">${new Date(r.created).getFullYear()}</span>
+          </header>
+          <p>${esc(r.description || g.noDescription)}</p>
+          ${r.language ? chips([r.language], 'chips--sm') : ''}
+          <footer class="project__links">
+            ${extLink(r.url, d.projects.repo)}
+            ${r.homepage ? extLink(r.homepage, d.projects.demo) : ''}
+          </footer>
+        </article>`)
+      .join('')}</div>`;
 }
 
 function formacoes(d) {
