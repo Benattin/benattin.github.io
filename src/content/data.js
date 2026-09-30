@@ -54,6 +54,7 @@ const pt = {
   bootDone: 'ação',
   prev: 'Seção anterior',
   next: 'Próxima seção',
+  nextShort: 'próxima',
   edge: 'continue rolando · próxima:',
   hero: {
     kicker: 'Olá, eu sou',
@@ -290,6 +291,7 @@ const en = {
   bootDone: 'action',
   prev: 'Previous section',
   next: 'Next section',
+  nextShort: 'next',
   edge: 'keep scrolling · next:',
   hero: {
     kicker: "Hi, I'm",

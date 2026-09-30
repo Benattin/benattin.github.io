@@ -115,4 +115,5 @@
   .character[data-section] { --x: 0px; }
   .character__img { position: absolute; left: -60%; top: 2px; width: 220%; height: auto; max-width: none; filter: none; }
   .character__bubble, .character__shadow { display: none; }
+  .character, .character * { animation: none !important; translate: none !important; }
 }

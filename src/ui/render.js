@@ -29,8 +29,11 @@ export function renderMenu() {
       .join('')}</ul>
     <div class="menu__bar">
       <button type="button" class="menu__step" data-step="-1" aria-label="${esc(d.prev)}" ${state.index === 0 ? 'disabled' : ''}>‹</button>
-      <span class="menu__current"><span class="menu__index">${pad(state.index)}</span>${esc(d.menu[state.index])}<span class="muted">${state.index + 1}/${sections.length}</span></span>
-      <button type="button" class="menu__step" data-step="1" aria-label="${esc(d.next)}" ${state.index === last ? 'disabled' : ''}>›</button>
+      <span class="menu__current">
+        <span class="menu__now"><span class="menu__index">${pad(state.index)}</span><span class="menu__name">${esc(d.menu[state.index])}</span></span>
+        <span class="menu__dots" aria-hidden="true">${sections.map((_, i) => `<i class="${i === state.index ? 'is-on' : ''}"></i>`).join('')}</span>
+      </span>
+      <button type="button" class="menu__step menu__step--next" data-step="1" aria-label="${esc(d.next)}" ${state.index === last ? 'disabled' : ''}>${esc(d.nextShort)} ›</button>
     </div>`;
 }
 
